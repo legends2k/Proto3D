@@ -1,6 +1,5 @@
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}")
 add_executable(${PROJECT_NAME} "glad.c" "main.cpp")
-install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
 set(CMAKE_CXX_STANDARD 17 CACHE STRING "The C++ standard to use")
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
