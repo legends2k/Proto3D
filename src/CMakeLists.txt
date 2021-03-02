@@ -25,14 +25,9 @@ message(STATUS "GLFW included from ${GLFW3_INCLUDE_DIR}")
 find_package(GLM REQUIRED)
 message(STATUS "GLM included from ${GLM_INCLUDE_DIR}")
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${GLM_INCLUDE_DIR} ${GLFW3_INCLUDE_DIR})
+target_include_directories(${PROJECT_NAME} PUBLIC
+  ${GLM_INCLUDE_DIR} ${GLFW3_INCLUDE_DIR})
 target_link_libraries(${PROJECT_NAME} ${GLFW3_LIBRARY})
 
-# disable optimizations, enable macro debugging with GDB level 3
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
-# CMake sets only NDEBUG for Release builds; DEBUG needs manual definition
-# https://stackoverflow.com/q/8591762/183120
-target_compile_definitions(${PROJECT_NAME} PUBLIC "$<$<CONFIG:DEBUG>:DEBUG>")
-
-# generate compile_commands.json needed for RTags
+# generate compile_commands.json needed for tools like RTags, Clang parser, etc.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
