@@ -29,16 +29,17 @@ endif ()
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
 find_package(OpenGL REQUIRED)
-find_package(GLFW3 REQUIRED)
-find_package(GLM REQUIRED)
+find_package(GLFW3 3.3 REQUIRED)
+find_package(GLM 0.9.9 REQUIRED)
 
 # When to use PRIVATE, PUBLIC and INTERFACE?
 # https://stackoverflow.com/q/26037954/183120
 target_include_directories(${PROJECT_NAME} PRIVATE ".")
+target_link_libraries(${PROJECT_NAME} PRIVATE GLAD)
 # Use SYSTEM to avoid warnings on extenal headers
-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
-  ${OPENGL_INCLUDE_DIR} ${GLM_INCLUDE_DIR} ${GLFW3_INCLUDE_DIR})
-target_link_libraries(${PROJECT_NAME} ${GLFW3_LIBRARY} GLAD)
+target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${GLM_INCLUDE_DIR})
+target_link_libraries(${PROJECT_NAME} PUBLIC ${GLFW3_LIBRARY} OpenGL::GL
+  ${CMAKE_DL_LIBS})             # needed in Linux for dlclose
 
 # generate compile_commands.json needed for tools like RTags, Clang parser, etc.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
