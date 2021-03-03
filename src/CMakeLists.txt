@@ -28,7 +28,6 @@ endif ()
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
-find_package(OpenGL REQUIRED)
 find_package(GLFW3 3.3 REQUIRED)
 find_package(GLM 0.9.9 REQUIRED)
 
@@ -38,8 +37,9 @@ target_include_directories(${PROJECT_NAME} PRIVATE ".")
 target_link_libraries(${PROJECT_NAME} PRIVATE GLAD)
 # Use SYSTEM to avoid warnings on extenal headers
 target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${GLM_INCLUDE_DIR})
-target_link_libraries(${PROJECT_NAME} PUBLIC ${GLFW3_LIBRARY} OpenGL::GL
-  ${CMAKE_DL_LIBS})             # needed in Linux for dlclose
+# https://www.glfw.org/docs/latest/build_guide.html#build_link_cmake_package
+# DL_LIBS is needed on Linux for dlclose calls by GLAD; on Windows it’s ""
+target_link_libraries(${PROJECT_NAME} PUBLIC ${GLFW3_LIBRARY} ${CMAKE_DL_LIBS})
 
 # generate compile_commands.json needed for tools like RTags, Clang parser, etc.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
