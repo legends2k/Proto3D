@@ -40,10 +40,11 @@ int main() {
 
   constexpr auto INIT_WIDTH = 800u;
   constexpr auto INIT_HEIGHT = 600u;
-  GLFWwindow* window = glfwCreateWindow(INIT_WIDTH, INIT_HEIGHT, "LearnOpenGL", NULL, NULL);
-  if (window == NULL)
+  GLFWwindow* window = glfwCreateWindow(INIT_WIDTH, INIT_HEIGHT,
+                                        "Learn OpenGL", nullptr, nullptr);
+  if (!window)
   {
-    std::cout << "Failed to create GLFW window" << std::endl;
+    std::cout << "Failed to create GLFW window\n";
     glfwTerminate();
     return -1;
   }
@@ -52,7 +53,7 @@ int main() {
 
   if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
   {
-    std::cout << "Failed to initialize GLAD" << std::endl;
+    std::cout << "Failed to initialize GLAD\n";
     return -1;
   }
 #ifndef NDEBUG

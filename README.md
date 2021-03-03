@@ -23,21 +23,17 @@ Clone this repo and proceed after installing dependencies.
 CMake has many generators.  Use whatever is comfortable for you, I’ve shown `Unix Makefiles` for its simplicity and ubiquity.  Check `man cmake-generators`.  `Ninja` is perhaps faster.
 
 ``` shell
-# avoid polluting working tree with build-related files
-mkdir build && cd build
+# generate make files under /build (out-of-source)
+cmake -B build -G "Unix Makefiles"
 
-cmake -G "Unix Makefiles" ..
-
-make
-
-cd ..
+make  # build tool agnostic alternative: cmake --build build
 
 ./Proto3D
 ```
 
 # Debug
 
-[Qt Creator][] is an efficient cross-platform C++ IDE with decent debugging capability that works atop the GCC/GDB or Clang/LLDB toolchains.  Qt Creator also has full support for CMake-based projects.  Once installed, do the following
+[Qt Creator][] is an efficient cross-platform C++ IDE with decent debugging capability that works atop the GCC/GDB or Clang/LLDB toolchains.  Qt Creator also has full support for CMake-based projects.  On macOS getting it to work wasn’t straight forward; here’s the precise recipe:
 
 1. Setup 32-bit Desktop kit
     1. Open _Qt Creator -> Preferences -> Kits_
