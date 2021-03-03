@@ -71,7 +71,7 @@ cmake -DCMAKE_BUILD_TYPE=Release -G Ninja ..
 
 # Thanks
 
-Thanks to _Joey De Vries_ for his excellent [LearnOpenGL.com][]; files under `cmake/` also from this [project’s repro][learn-opengl-repo].
+Thanks to _Joey De Vries_ for his excellent [LearnOpenGL.com][]; files under `cmake/` are from [LearnOpenGL’s repro][learn-opengl-repo].
 
 
 [GLFW]: https://www.glfw.org/
