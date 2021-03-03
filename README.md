@@ -20,7 +20,7 @@ Clone this repo and proceed after installing dependencies.
 
 # Build
 
-CMake has many generators.  Use whatever is comfortable for you, I’ve shown `Unix Makefiles` for its simplicity and ubiquity.  Check `man cmake-generators`.
+CMake has many generators.  Use whatever is comfortable for you, I’ve shown `Unix Makefiles` for its simplicity and ubiquity.  Check `man cmake-generators`.  `Ninja` is perhaps faster.
 
 ``` shell
 # avoid polluting working tree with build-related files
@@ -53,8 +53,26 @@ cd ..
 5. Add a breakpoint in `/src/main.cpp` and try _Debug -> Start Debugging -> Start Debugging of startup project_
     1. You should be able to step over, into and out of code after some breakpoint is hit; variables and their values should be inspectable
 
+If you’re on macOS or Windows, perhaps Xcode or Visual Studio are better choices.  Simply use the respective generators and get going!
+
+``` shell
+cmake -G Xcode ..
+
+cmake -G "Visual Studio 15 2017" -A x64 ..
+```
+
+Opening the generated solution should build and debug like any other project.
+
+# Release
+
+``` shell
+cmake -DCMAKE_BUILD_TYPE=Release -G Ninja ..
+```
+
+# Thanks
 
 Thanks to _Joey De Vries_ for his excellent [LearnOpenGL.com][]; files under `cmake/` also from this [project’s repro][learn-opengl-repo].
+
 
 [GLFW]: https://www.glfw.org/
 [GLM]: https://github.com/g-truc/glm

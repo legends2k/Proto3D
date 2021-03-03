@@ -12,6 +12,8 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     "MinSizeRel" "RelWithDebInfo")
 endif()
 
+# TODO: generate config.h with path to a “data” directory, allowing binary to
+# be placed and launched anywhere freely
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}")
 add_executable(${PROJECT_NAME} "src/glad.c" "src/main.cpp")
 
