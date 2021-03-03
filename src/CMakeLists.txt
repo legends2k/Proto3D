@@ -17,16 +17,11 @@ endif()
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
 find_package(OpenGL REQUIRED)
-target_include_directories(${PROJECT_NAME} PUBLIC ${OPENGL_INCLUDE_DIRS} ".")
-
 find_package(GLFW3 REQUIRED)
-message(STATUS "GLFW included from ${GLFW3_INCLUDE_DIR}")
-
 find_package(GLM REQUIRED)
-message(STATUS "GLM included from ${GLM_INCLUDE_DIR}")
 
 target_include_directories(${PROJECT_NAME} PUBLIC
-  ${GLM_INCLUDE_DIR} ${GLFW3_INCLUDE_DIR})
+  ${OPENGL_INCLUDE_DIR} ${GLM_INCLUDE_DIR} ${GLFW3_INCLUDE_DIR} ".")
 target_link_libraries(${PROJECT_NAME} ${GLFW3_LIBRARY})
 
 # generate compile_commands.json needed for tools like RTags, Clang parser, etc.
