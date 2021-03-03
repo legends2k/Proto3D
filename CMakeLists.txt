@@ -1,6 +1,6 @@
 # refer https://github.com/ttroy50/cmake-examples/tree/master/02-sub-projects
 
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.8)
 project(Proto3D VERSION 1.0
                 LANGUAGES CXX C)  # GLAD needs C
 
