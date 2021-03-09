@@ -3,6 +3,8 @@
 
 #include "glad/glad.h"
 
+#include <cstddef>
+
 inline
 size_t diff_or_err(long val,
                    long min,
