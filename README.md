@@ -14,9 +14,12 @@ pacman -S glfw-x11 glm cmake
 brew install glfw glm cmake
 ```
 
-[GLAD][] is used for extension loading but it’s already part of the sources; configured for OpenGL 3.3 Core profile with the `GL_KHR_debug` extension.  Needn’t be installed separately.
-
 Clone this repo and proceed after installing dependencies.
+
+Some dependencies are already in the source tree under `//third-party`; needn’t be installed separately:
+
+* [GLAD][] for OpenGL extension loading; configured for OpenGL 3.3 Core profile with the `GL_KHR_debug` extension
+* [stb][] (specifically `stb_image.h`) for image loading
 
 # Build
 
@@ -74,6 +77,7 @@ Thanks to _Joey De Vries_ for his excellent [LearnOpenGL.com][]; files under `cm
 [GLM]: https://github.com/g-truc/glm
 [CMake]: https://cmake.org/
 [GLAD]: https://github.com/Dav1dde/glad
+[stb]: https://github.com/nothings/stb
 [LearnOpenGL.com]: https://learnopengl.com/
 [learn-opengl-repo]: https://github.com/JoeyDeVries/LearnOpenGL
 [Qt Creator]: https://www.qt.io/offline-installers
