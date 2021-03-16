@@ -38,3 +38,9 @@
 /builddir/
 CMakeLists.txt.user
 /Proto3D
+
+# Emacs temporaries
+\#*#
+
+#macOS
+.DS_Store
