@@ -13,7 +13,7 @@ size_t diff_or_err(long val,
 {
   if ((val < min) || (val > max))
     return err;
-  return val - min;
+  return static_cast<size_t>(val - min);
 }
 
 void gl_debug_logger(GLenum source, GLenum type, GLuint id, GLenum severity,
