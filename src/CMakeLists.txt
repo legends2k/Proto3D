@@ -21,9 +21,9 @@ elseif (MSVC)
   target_compile_options(${PROJECT_NAME} PRIVATE /W3 /GR-)
 endif ()
 
-if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
--Wvector-operation-performance -Wlogical-op")
+if (CMAKE_COMPILER_IS_GNUCXX)
+  target_compile_options(${PROJECT_NAME} PRIVATE
+    "-Wvector-operation-performance -Wlogical-op")
 endif ()
 
 # Use module mode of find_package; include Find{GLFW3,GLM}.cmake
