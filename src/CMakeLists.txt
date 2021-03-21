@@ -23,7 +23,7 @@ endif ()
 
 if (CMAKE_COMPILER_IS_GNUCXX)
   target_compile_options(${PROJECT_NAME} PRIVATE
-    "-Wvector-operation-performance -Wlogical-op")
+    -Wvector-operation-performance -Wlogical-op)
 endif ()
 
 # Use module mode of find_package; include Find{GLFW3,GLM}.cmake
@@ -39,7 +39,6 @@ find_package(GLM 0.9.9 REQUIRED)
 
 # When to use PRIVATE, PUBLIC and INTERFACE?
 # https://stackoverflow.com/q/26037954/183120
-target_include_directories(${PROJECT_NAME} PRIVATE ".")
 target_link_libraries(${PROJECT_NAME} PRIVATE GLAD stb)
 # Use SYSTEM to avoid warnings on extenal headers
 target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
