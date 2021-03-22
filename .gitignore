@@ -42,5 +42,5 @@ CMakeLists.txt.user
 # Emacs temporaries
 \#*#
 
-#macOS
+# macOS
 .DS_Store

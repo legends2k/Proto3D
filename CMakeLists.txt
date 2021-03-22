@@ -3,8 +3,7 @@
 # https://cliutils.gitlab.io/modern-cmake/chapters/intro/dodonot.html
 
 cmake_minimum_required(VERSION 3.8)
-project(Proto3D VERSION 1.0
-                LANGUAGES CXX C)  # GLAD needs C
+project(Proto3D VERSION 1.0)
 
 # Set a default build type if none was specified
 set(default_build_type "Debug")
