@@ -1,6 +1,3 @@
-# TODO: generate config.h with path to a “data” directory, allowing binary to
-# be placed and launched anywhere freely. Refer:
-# https://cliutils.gitlab.io/modern-cmake/chapters/basics/comms.html
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}")
 add_executable(${PROJECT_NAME} "util.cpp" "main.cpp")
 
@@ -47,5 +44,3 @@ target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC
 # DL_LIBS is needed on Linux for dlclose calls by GLAD; it’s empty elsewhere
 target_link_libraries(${PROJECT_NAME} PUBLIC ${GLFW3_LIBRARY} ${CMAKE_DL_LIBS})
 
-# generate compile_commands.json needed for tools like RTags, Clang parser, etc.
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
