@@ -34,7 +34,23 @@ make  # build tool agnostic alternative: cmake --build build
 ./Proto3D
 ```
 
-## Debug
+If you’re on macOS or Windows, perhaps Xcode or Visual Studio are better choices.  Simply use the respective generators and get going!
+
+``` shell
+cmake -G Xcode ..
+
+cmake -G "Visual Studio 15 2017" -A x64 ..
+```
+
+Opening the generated solution should build and debug like any other project.
+
+## Release
+
+``` shell
+cmake -DCMAKE_BUILD_TYPE=Release -G Ninja ..
+```
+
+## macOS Debug
 
 [Qt Creator][] is an efficient cross-platform C++ IDE with decent debugging capability that works atop the GCC/GDB or Clang/LLDB toolchains.  Qt Creator also has full support for CMake-based projects.  On macOS getting it to work wasn’t straight forward; here’s the precise recipe:
 
@@ -51,22 +67,6 @@ make  # build tool agnostic alternative: cmake --build build
     2. _Build -> Run_ i.e. running without debugging should work fine
 5. Add a breakpoint in `/src/main.cpp` and try _Debug -> Start Debugging -> Start Debugging of startup project_
     1. You should be able to step over, into and out of code after some breakpoint is hit; variables and their values should be inspectable
-
-If you’re on macOS or Windows, perhaps Xcode or Visual Studio are better choices.  Simply use the respective generators and get going!
-
-``` shell
-cmake -G Xcode ..
-
-cmake -G "Visual Studio 15 2017" -A x64 ..
-```
-
-Opening the generated solution should build and debug like any other project.
-
-## Release
-
-``` shell
-cmake -DCMAKE_BUILD_TYPE=Release -G Ninja ..
-```
 
 # Tools
 
